@@ -1,9 +1,9 @@
 #!/bin/sh
-release="74"
+release="74v3"
 make clean
 ccache -c
 rm -rf ../ramdisk_hammerhead/boot.img
-make aosp_defconfig
+make crystal_defconfig
 export NUMBEROFCPUS=`grep 'processor' /proc/cpuinfo | wc -l`;
 make -j$NUMBEROFCPUS CONFIG_NO_ERROR_ON_MISMATCH=y CONFIG_LOCALVERSION="-Crystal.Kernel-r$release"
 
